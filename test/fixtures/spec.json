@@ -1,0 +1,43 @@
+[
+  {
+    "description": "ping some host",
+    "name": "ping",
+    "args": "www.example.com",
+    "expected": true
+  },
+  {
+    "description": "verify a node process is running (pointless using pid:))",
+    "name": "process",
+    "args": 34456,
+    "expected": true
+  },
+  {
+    "description": "verify episodes api returns 200",
+    "name": "request",
+    "args": {
+      "url": "https://episodes.ibl.api.bbci.co.uk/episodes"
+    },
+    "expected": 200
+  },
+  {
+    "description": "verify a node process is running",
+    "name": "process",
+    "args": {
+      "name": "node"
+    },
+    "expected": true
+  },
+  {
+    "description": "verify some file exists",
+    "name": "file",
+    "args": {
+      "path": "/etc/pki/ibl.pem"
+    },
+    "expected": true
+  },
+  {
+    "description": "verify load average is not a capacity",
+    "name": "loadaverage",
+    "expected": "< 1"
+  }
+]

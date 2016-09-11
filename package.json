@@ -1,0 +1,79 @@
+{
+  "name": "ops-doctor-cli",
+  "version": "1.0.0",
+  "description": "cli for ops-doctor",
+  "main": "index.js",
+  "bin": {
+    "ops-doctor": "lib/ops-doctor.js"
+  },
+  "scripts": {
+    "lint": "eslint ./src ./test",
+    "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- -R dot",
+    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
+    "clean": "rm lib/*",
+    "prepublish": "npm run compile",
+    "test": "npm run compile && mocha --compilers js:babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nspragg/ops-doctor-cli.git"
+  },
+  "keywords": [],
+  "author": "nspragg@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nspragg/ops-doctor-cli/issues"
+  },
+  "homepage": "https://github.com/nspragg/ops-doctor-cli",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-istanbul": "^0.11.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "coveralls": "^2.11.9",
+    "eslint": "^3.0.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.0",
+    "sinon": "^1.17.4"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "mocha": true,
+      "es6": true
+    },
+    "rules": {
+      "quotes": [
+        2,
+        "single"
+      ],
+      "eqeqeq": 2,
+      "no-var": 2,
+      "one-var": [
+        2,
+        "never"
+      ],
+      "prefer-const": 2,
+      "semi": 2,
+      "strict": [
+        2,
+        "global"
+      ],
+      "arrow-parens": 2,
+      "prefer-arrow-callback": 2
+    }
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "columnify": "^1.5.4",
+    "commander": "^2.9.0",
+    "inquirer": "^1.1.3",
+    "lodash": "^4.13.1"
+  }
+}
